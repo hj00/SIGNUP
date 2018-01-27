@@ -6,17 +6,18 @@
     <!--<a href="/user/new" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign up</a>-->
     <a href="/user/new"><button type="button" class="btn btn-info">Sign in</button></a>
     <div class="container">
-        <div class="row">
         <% @users.each do |user| %>
-            <div class="col-md-4">E-mail : <%= user.email %></div>
-            <div class="col-md-8">Password : <%= user.password %></div><hr/>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= user.name %></h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><%= user.email %></h6>
+                    <p class="card-text"><%= user.description%></p>
+                    <a href="/user/modify/:id" class="card-link">Edit</a>
+                    <a href="/user/destroy/:id" class="card-link">Delete</a>
+                </div>
+            </div>    
         <% end %>
-        </div>
     </div>
-    
-    
-    
-    <a href="/user/modify/:id">수정</a> <br/>
-    <a href="/user/destroy:id">탈퇴</a> <br/>    
+
 </body>
 
